@@ -1,0 +1,139 @@
+<!-- Section: Features v.3 -->
+<section class="my-5">
+
+    <!-- Section heading -->
+    <h2 class="h1-responsive font-weight-bold text-center my-5">《web应用基础》课程结业报告</h2>
+    <!-- Section description -->
+    <p class="lead grey-text text-center w-responsive mx-auto mb-5"></p>
+  
+    <!-- Grid row -->
+    <div class="row">
+  
+      <!-- Grid column -->
+      <div class="col-lg-5 text-center text-lg-left">
+        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/screens-section.jpg" alt="Sample image">
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col-lg-7">
+  
+        <!-- Grid row -->
+        <div class="row mb-3">
+  
+          <!-- Grid column -->
+          <div class="col-1">
+            <i class="fas fa-share fa-lg indigo-text"></i>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-xl-10 col-md-11 col-10">
+            <h5 class="font-weight-bold mb-3">做的什么</h5>
+            <p class="grey-text">利用angular前段框架做的一个动态网站</p>
+          </div>
+          <!-- Grid column -->
+  
+        </div>
+        <!-- Grid row -->
+  
+        <!-- Grid row -->
+        <div class="row mb-3">
+  
+          <!-- Grid column -->
+          <div class="col-1">
+            <i class="fas fa-share fa-lg indigo-text"></i>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-xl-10 col-md-11 col-10">
+            <h5 class="font-weight-bold mb-3">开发过程</h5>
+            <p class="grey-text">首先我简单学习了一下angular的使用过程，看完了教程英雄之旅，尝试跟着做了一下，最后在这个基础上做了一些改进</p>
+          </div>
+          <!-- Grid column -->
+  
+        </div>
+        <!-- Grid row -->
+  
+        <!--Grid row-->
+        <div class="row">
+  
+          <!-- Grid column -->
+          <div class="col-1">
+            <i class="fas fa-share fa-lg indigo-text"></i>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-xl-10 col-md-11 col-10">
+            <h5 class="font-weight-bold mb-3">遇到的问题</h5>
+            <p class="grey-text mb-0">最开始配置angular环境遇到一些问题，在同学帮助下完成。完成过程中问题有路由配置，获取数据，增删改查等功能实现，当用户按键后就直接调用 `searchHeroes()` 将导致创建海量的 HTTP 请求，浪费服务器资源并干扰数据调度计划。</p>
+          </div>
+          <!-- Grid column -->
+          <div class="row">
+  
+            <!-- Grid column -->
+            <div class="col-1">
+              <i class="fas fa-share fa-lg indigo-text"></i>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-xl-10 col-md-11 col-10">
+              <h5 class="font-weight-bold mb-3">解决方法</h5>
+              <p class="grey-text mb-0">`ngOnInit()` 往 `searchTerms` 这个可观察对象的处理管道中加入了一系列 RxJS 操作符，用以缩减对 `searchHeroes()` 的调用次数，并最终返回一个可及时给出英雄搜索结果的可观察对象（每次都是 `Hero[]` ）。</p>
+                <p class="grey-text mb-0">`HeroService` 可以从任何地方获取数据：Web 服务、本地存储（LocalStorage）或一个模拟的数据源</p>
+                <p class="grey-text mb-0">必须先注册一个*服务提供者*，来让 `HeroService` 在依赖注入系统中可用，Angular 才能把它注入到 `HeroesComponent` 中。所谓服务提供者就是某种可用来创建或交付一个服务的东西；在这里，它通过实例化 `HeroService` 类，来提供该服务。</p>
+                <p class="grey-text mb-0">为了确保 `HeroService` 可以提供该服务，就要使用*注入器*来注册它。注入器是一个对象，负责当应用要求获取它的实例时选择和注入该提供者。</p>
+                <p class="grey-text mb-0">默认情况下，Angular CLI 命令 `ng generate service` 会通过给 `@Injectable()` 装饰器添加 `providedIn: 'root'` 元数据的形式，用*根注入器*将你的服务注册成为提供者。</p>
+                    <p class="grey-text mb-0">*Routes* 告诉路由器，当用户单击链接或将 URL 粘贴进浏览器地址栏时要显示哪个视图。</p>
+                     <p class="grey-text mb-0">由于 `app-routing.module.ts` 已经导入了 `HeroesComponent`，因此可以直接在 `routes` 数组中使用它：</p>
+            </div>
+        
+        </div>
+        <!--Grid row-->
+        <div class="row">
+  
+            <!-- Grid column -->
+            <div class="col-1">
+              <i class="fas fa-share fa-lg indigo-text"></i>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-xl-10 col-md-11 col-10">
+              <h5 class="font-weight-bold mb-3">总结</h5>
+              <p class="grey-text mb-0">使用 CLI 创建了第二个组件 `HeroesComponent`。
+
+                把 `HeroesComponent` 添加到了壳组件 `AppComponent` 中，以便显示它。
+               
+                使用 `UppercasePipe` 来格式化英雄的名字。
+               
+                用 `ngModel` 指令实现了双向数据绑定。
+               
+                知道了 `AppModule`。
+               
+                把 `FormsModule` 导入了 `AppModule`，以便 Angular 能识别并应用 `ngModel` 指令。
+               
+                  知道了把组件声明到 `AppModule` 是很重要的，并认识到 CLI 会自动帮你声明它。</p>
+                <p class="grey-text mb-0">添加了在应用程序中使用 HTTP 的必备依赖。
+
+                    重构了 `HeroService`，以通过 web API 来加载英雄数据。
+                   
+                    扩展了 `HeroService` 来支持 `post()`、`put()` 和 `delete()` 方法。
+                   
+                    修改了组件，以允许用户添加、编辑和删除英雄。
+                   
+                    配置了一个内存 Web API。
+                   
+                    学会了如何使用“可观察对象”。</p>
+            </div>
+      </div>
+      <!--Grid column-->
+  
+    </div>
+    <!-- Grid row -->
+  
+  </section>
+  <!-- Section: Features v.3 -->
