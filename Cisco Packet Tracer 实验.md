@@ -460,7 +460,8 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 
 **3560 交换机配置：**
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815102/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226242-c97f62d2-fbf0-4ee0-89e2-19fee981a83f.png)
+
 
 
 至此，各 VLAN 中的 PC 可以正常通信。
@@ -468,7 +469,8 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 **现在再使用 PC0（`192.168.1.2`） `ping` PC1（`192.168.2.2`） 的结果如何？使用 PC0 `ping` PC2 的结果如何？**
 
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815115/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226288-6a5fbc10-09de-4780-bd51-6232ecd98dd0.png)
+
 
 🗣 **独臂路由的缺陷**
 
@@ -480,8 +482,10 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 
 动态主机配置 DHCP、域名解析 DNS 以及 Web 服务在日常应用中作用巨大，我们构建如下简单的拓扑来进行练习。
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815116/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226340-88bdd9f7-08aa-4a4c-bc9e-2e49e0d076d0.png)
 
+
+![图片](https://user-images.githubusercontent.com/86180817/148226416-d26652e2-497e-4594-9bf6-6607e9ec53bc.png)
 
 
 该拓扑中，服务器及客户机都连在同一交换机上。为简单起见，服务器 Server-PT 同时作为  DHCP、DNS 以及 Web 服务器，各客户机无需配置，将自动获取网络配置。
@@ -495,31 +499,29 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 | Server     | DHCP         | 地址池开始地址：19.89.6.10/24，并返回DNS地址 |
 | PC         | 网络配置     | 自动获取                                     |
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815117/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226449-c1ed709c-3d3e-4ef9-8295-d2ebe6474125.png)
 
 
+![图片](https://user-images.githubusercontent.com/86180817/148226496-e3af3b34-1f98-437d-a9fa-de790edef17c.png)
 
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815118/Cisco.Packet.Tracer.md)
 
 
 1. **先查看各 PC，看看是否获得网络配置**
 2. **因为我们在 DNS 服务器中把谷歌和百度的 IP 都设为了 `19.89.6.4`，即 Server-PT，所以，如果打开 PC0 的浏览器，输入 `www.google.com` 或者 `www.baidu.com`，我们都应该看到默认的 Server-PT 这个 Web 服务器的主页（你也可进行编辑）**
 
 
-
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815120/Cisco.Packet.Tracer.md)
-
+![图片](https://user-images.githubusercontent.com/86180817/148226552-b9621256-1a2b-4d71-adf9-8a7358edb54b.png)
 
 
-
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815121/Cisco.Packet.Tracer.md)
-
-
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815122/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226579-928718dd-4ccf-4d3e-bedc-43e2449a365d.png)
 
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815127/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226598-0346e017-775f-4cf9-ab8f-2e76e4a2048c.png)
+
+
+![图片](https://user-images.githubusercontent.com/86180817/148226609-c7dcee79-84bf-4a99-9177-8d03f9790f7e.png)
+
 
 ## WLAN初步配置
 
@@ -527,30 +529,29 @@ WLAN 即 WiFi 当前也是广泛的应用在各种场景。
 
 我们通过构建如下拓扑的一个家庭 WLAN 来练习一下其相关的配置：
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815129/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226643-6a210657-0c40-4f4e-91e5-31be16d80d5c.png)
 
 
 
 
 笔记本及台式机默认只有有线网卡，请先关机，在关机状态下删除有线网卡，添加无线网卡，然后再开机。
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815132/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226688-e02984cd-7871-47db-a3c5-c2be7b42f104.png)
+
 
 
 无线网卡可以选择PT-HOST-NM-1W或者PT-HOST-NM-1W-A
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815134/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226722-96b5b8ba-1f7b-4d39-9819-17a0f8ee68a2.png)
+
 
 
 配置好后的PC9和Laptop-PT无线联网的计算机都能自动获取网络配置并且PC9能够ping通Laptop-PT
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815137/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226787-1f440c64-5ab1-4313-9173-e56e24957fb8.png)
 
+![图片](https://user-images.githubusercontent.com/86180817/148226805-0793162a-a5a4-485b-b008-9e1fb42a4916.png)
 
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815099/Cisco.Packet.Tracer.md)
+![图片](https://user-images.githubusercontent.com/86180817/148226815-3c6384ba-3dcc-4803-a95c-05e1cee883e6.png)
 
-
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815144/Cisco.Packet.Tracer.md)
-
-[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815148/Cisco.Packet.Tracer.md)
 
