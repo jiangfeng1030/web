@@ -12,8 +12,7 @@
 
 构建如下拓扑结构的局域网：
 
-![csd](http://10.1.74.238/network/netlab/img/d703203be531d775.png)
-
+![图片](https://user-images.githubusercontent.com/86180817/148197639-a00340c6-da21-47ba-b796-beab1a42f9c4.png)
 
 
 各PC的基本网络配置如下表：
