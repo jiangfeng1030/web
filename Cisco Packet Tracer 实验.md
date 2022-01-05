@@ -6,7 +6,8 @@
 
 进行两台 PC 的基本网络配置，只需要配置 IP 地址即可，然后相互 `ping` 通即成功。
 
-![image-20220102223643473](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102223643473.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221017-c07511f4-f197-4069-928d-1de81e6802e9.png)
+
 
 ## 用交换机构建 LAN
 
@@ -26,19 +27,21 @@
 
 1. **PC0 能否 `ping` 通 PC1、PC2、PC3 ？**
 
-   ![image-20220102230024268](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102230024268.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221052-e1e08a37-8038-4717-bb1e-4eaeccaf0d01.png)
+
 
    只能ping通PC1
 
 2. **PC3 能否 `ping` 通 PC0、PC1、PC2 ？为什么？**
 
-   ![image-20220102230434737](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102230434737.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221078-dfecee1a-507c-4282-8310-03bc5b9d6b12.png)
+
 
    能ping通PC2 其他的不行  因为它们不在同一子网 网络号不同
 
 3. **将 4 台 PC 的掩码都改为 `255.255.0.0` ，它们相互能 `ping` 通吗？为什么？**
 
-   ![image-20220102230817351](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102230817351.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221092-6cdf5d45-c51a-400f-a74e-2594fab481df.png)
 
    能 因为ip地址和子网掩码相与的结果也就是网络号一样 处于同一子网
 
@@ -52,13 +55,14 @@
 
 仍然构建上图的拓扑结构，并配置各计算机的 IP 在同一个一个子网，使用工具栏中的放大镜点击某交换机如左边的 Switch3，选择 `MAC Table`，可以看到最初交换机的 MAC 表是空的，也即它不知道该怎样转发帧（那么它将如何处理？），用 PC0 访问（`ping`）PC1 后，再查看该交换机的 MAC 表，现在有相应的记录，请思考如何得来。随着网络通信的增加，各交换机都将生成自己完整的 MAC 表，此时交换机的交换速度就是最快的！
 
-![image-20220102231414854](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102231414854.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221125-04183473-0b19-4bc4-90b5-1ccc42c0d2ec.png)
 
 
+![图片](https://user-images.githubusercontent.com/86180817/148221176-319ed5db-9584-48d7-a4e7-7b4510070e2f.png)
 
-![image-20220102231604266](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102231604266.png)
 
-![image-20220102231536299](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102231536299.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221153-61bacda1-34f0-49f0-baad-6044a8fb9ca3.png)
+
 
 ## 生成树协议（Spanning Tree Protocol）
 
@@ -68,9 +72,11 @@
 
 只使用交换机，构建如下拓扑：
 
-![img](http://10.1.74.238/network/netlab/img/36281337be0fcf75.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221235-982b54fc-76e5-4206-9ef5-e83ccacfaa60.png)
 
-![image-20220103132605203](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103132605203.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148221274-d44c9dee-5348-4a69-bf1e-9c264d8dc813.png)
+
 
 这是初始时的状态。我们可以看到交换机之间有回路，这会造成广播帧循环传送即形成广播风暴，严重影响网络性能。
 
@@ -78,17 +84,20 @@
 
 经过一段时间，随着 STP 协议成功构建了生成树后，Switch5 的两个接口当前物理上是连接的，但逻辑上是不通的，处于Blocking状态（桔色）
 
-![image-20220103132641693](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103132641693.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221294-266d5ff6-f417-4b26-bd0b-cb8a503f83bb.png)
+
 
 在网络运行期间，假设某个时候 Switch4 与 Switch5 之间的物理连接出现问题（将 Switch4 与 Switch5 的连线剪掉），则该生成树将自动发生变化。
 
-![image-20220103132849921](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103132849921.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221315-c1f50237-2e00-45a7-b9fe-18ad1ec972f5.png)
+
 
 ## 路由器配置初步
 
 我们模拟重庆交通大学和重庆大学两个学校的连接，构建如下拓扑：
 
-![img](http://10.1.74.238/network/netlab/img/2d19ce3e61c1328f.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221335-4b7aa9f0-5d38-4a36-902e-a8dea2fbb5c7.png)
+
 
 拓扑图中路由器各接口配置数据如下：
 
@@ -110,13 +119,15 @@
 
 
 
-![image-20220103143702589](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103143702589.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221391-a07b1e3a-cbf0-4f29-b5c0-d1ee11074da5.png)
+
 
 
 
 **现在交通大学内的各 PC 及网关相互能 `ping` 通，重庆大学也类似。但不能从交大的 PC  `ping` 通重大的 PC，反之亦然，也即不能跨子网。为什么？**
 
-![image-20220103143646631](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103143646631.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221375-a4845333-95b9-4bd1-8937-028e2127bd65.png)
+
 
 路由表中没有对方的路由路径。
 
@@ -130,27 +141,30 @@
 
 **交通大学路由器静态路由配置：**
 
-![image-20220103144558060](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103144558060.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221415-c0d4b783-02f6-41b6-a91f-98312e4fd0e8.png)
 
 
 
-![image-20220103144937429](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103144937429.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221513-e2ca28de-5523-4839-afa4-8197c441b5b3.png)
 
 
 
 **重庆大学路由器静态路由配置：**
 
-![image-20220103144808511](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103144808511.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148221551-b8c5c789-12b9-46ab-93ae-1a651ef8a783.png)
 
 
 
-![image-20220103144916043](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103144916043.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221566-c599d1b6-53f7-459e-ba0a-9688245a4217.png)
+
 
 查看路由表你可看到标记为 `S` 的一条路由，`S` 表示 Static 。
 
 至此，这些 PC 能全部相互 `ping` 通！
 
-![image-20220103145124390](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103145124390.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221580-1678f4fd-1015-45b8-be84-a4c237f81fb0.png)
+
 
 ## 动态路由 RIP
 
@@ -167,25 +181,26 @@ RIP 的全称是 Routing Information Protocol，是距离矢量路由的代表�
 
 **交通大学路由器 RIP 路由配置：**
 
-![image-20220103145915201](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103145915201.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221602-e53209a5-5d51-4067-8cf1-50788470b85e.png)
 
 
 
-![image-20220103150000741](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103150000741.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221613-ad14599e-1dce-450f-bbbb-1b931bf8f232.png)
 
 **重庆大学路由器 RIP 路由配置：**
 
-![image-20220103150104700](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103150104700.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221629-d72bb3f4-e391-4197-af8a-296cc5e868bd.png)
 
 
+![图片](https://user-images.githubusercontent.com/86180817/148221646-e9de7657-1d83-4388-b099-e39b27fc152f.png)
 
-![image-20220103150116469](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103150116469.png)
 
 查看路由表你可看到标记为 `R` 的一条路由，`R` 表示 RIP 。
 
 至此，这些 PC 也能全部相互 `ping` 通！
 
-![image-20220103150416450](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103150416450.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221672-b5d2aaba-66c7-49a6-af29-c621327f0bd8.png)
+
 
 ## 动态路由 OSPF
 
@@ -200,17 +215,19 @@ OSPF（Open Shortest Path First 开放式最短路径优先）是一个内部网
 
 **交通大学路由器 OSPF 路由配置：**
 
-![image-20220103151112840](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103151112840.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221692-cf8dc70e-e74e-4c7f-a8e3-02445b6ba25b.png)
 
 **重庆大学路由器 OSPF 路由配置：**
 
-![image-20220103151237572](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103151237572.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221706-3ebc75f8-c25b-4bf4-b3cd-66037e93c16c.png)
+
 
 查看路由表你可看到标记为 O 的一条路由，O 表示 OSPF 。
 
 至此，这些 PC 能全部相互 `ping` 通！
 
-![image-20220103151509888](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103151509888.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221724-58513b05-0659-4fd5-8212-0551ccad75ba.png)
+
 
 ## 基于端口的网络地址翻译 PAT
 
@@ -250,35 +267,41 @@ NAT 的实现方式一般有三种：
 
 **交通大学路由器 OSPF 路由配置：**
 
-![image-20220103152601328](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103152601328.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221744-4045f618-826f-4e57-8f53-74e44ad580b1.png)
+
 
 **重庆大学路由器 OSPF 路由配置：**
 
-![image-20220103152743438](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103152743438.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221750-59baf6bc-6c2f-4607-85cb-58c180c5d65e.png)
 
 此时，这些 PC 能全部相互 `ping` 通！如在交通大学内部使用 PC0（`192.168.1.2`）来 `ping` 重庆大学的PC2（`8.8.8.2`）应该成功。
 
-![image-20220103152840465](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103152840465.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221763-4c3f520b-bfdf-4f8a-92c0-4f3f05565710.png)
+
 
 下面我们将重庆大学的路由器看着 Internet 中的骨干路由器，那么这些路由器将不会转发内部/私有 IP 地址的包（直接丢弃）。我们通过在重庆大学路由器上实施访问控制 ACL ，即丢弃来自交通大学（私有 IP 地址）的包来模拟这个丢包的过程。
 
 **重庆大学路由器丢包的配置：**
 
-![image-20220103153230737](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103153230737.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221784-d4a08399-53f8-4e24-8d40-4318a5da9c41.png)
+
 
 此时，再使用交通大学内部的 PC0（`192.168.1.2`）来 `ping` 重庆大学的 PC2（`8.8.8.2`）就不成功了，会显示目的主机不可到达（`Destination host unreachable`）信息。
 
-![image-20220103153316328](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103153316328.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221810-33557f53-5ce0-43cc-87f5-446b0c0be3b3.png)
+
 
 下面，我们就开始实施 PAT。即：我们将会在交通大学路由器的出口上将内部/私有 IP 地址转换为外部/公开 IP，从而包的源 IP 发生了改变，就不会被重庆大学路由器丢弃，因此网络连通。
 
 **交通大学路由器 PAT 配置：**
 
-![image-20220103153632010](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103153632010.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221823-dd19170c-fef2-4613-a59b-35ac7efe8288.png)
+
 
 现在，再次使用交通大学内部的 PC0（`192.168.1.2`）来 `ping` 重庆大学的PC2（`8.8.8.2`）则OK。
 
-![image-20220103153706095](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103153706095.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221843-220a1edc-a15e-4a94-9095-0ba8ca0233ff.png)
+
 
 ## 虚拟局域网 VLAN
 
@@ -294,9 +317,11 @@ VLAN（Virtual Local Area Network）即虚拟局域网。通过划分 VLAN，我
 
 在 CPT 中构建如下图所示拓扑：
 
-![img](http://10.1.74.238/network/netlab/img/53aae5b14f634f1e.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221902-4f72c3cc-bda7-46cf-b350-928ff8c28995.png)
 
-![image-20220103155122014](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103155122014.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148221913-4be9c280-ea38-46f8-a2e2-d117da50d804.png)
+
 
 
 
@@ -308,11 +333,13 @@ Cisco 2960 交换机是支持 VLAN 的交换机，共有 24 个 100M 和 2 个 1
 
 **交换机 VLAN 配置：**
 
-![image-20220103155803407](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103155803407.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221934-610e0c50-dcdb-4ab4-ada0-0adfcccd077e.png)
 
-![image-20220103155836799](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103155836799.png)
 
-![image-20220103155857734](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103155857734.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221952-4c0b2d6c-eae9-4925-b1ef-9a2c78772949.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148221969-8f7170e8-51da-49fa-b410-faf0936a173f.png)
+
 
 至此，在该交换机上我们就划分了 3 个 VLAN（不包括缺省的 VLAN 1）。
 
@@ -330,7 +357,8 @@ Cisco 2960 交换机是支持 VLAN 的交换机，共有 24 个 100M 和 2 个 1
 
 此时可以使用 `ping` 命令进行测试，你会发现只有在同一 VLAN 中的 PC 才能通信，且广播也局限于该 VLAN。
 
-![image-20220103160455752](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103160455752.png)
+![图片](https://user-images.githubusercontent.com/86180817/148221999-15998ffd-4d20-49c0-a8df-56d6167d1e8f.png)
+
 
 **分析一下当前为何不同 VLAN 中的 PC 不能通信？网关在此起什么作用？我们的网关又在何处？如何发起广播测试？**
 
@@ -346,9 +374,11 @@ VTP（VLAN Trunk Protocol）即 VLAN 中继协议。VTP 通过 ISL 帧或 Cisco 
 
 为演示 VTP，重新构建如下拓扑结构：
 
-![img](http://10.1.74.238/network/netlab/img/6b0ab4595d1e01c6.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222040-f9bee97c-281d-402b-a725-be6e4c3ac720.png)
 
-![image-20220103162303538](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103162303538.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148222052-b52516ee-fbb6-4eb1-a4b6-0fbeaa3a35a3.png)
+
 
 目前该网络都属于 `VLAN 1`，也即这些 PC 是可以相互通信的。前面说过，无论对于性能、管理还是安全等而言，现实中我们必须进行 VLAN 划分。
 
@@ -362,7 +392,8 @@ VTP（VLAN Trunk Protocol）即 VLAN 中继协议。VTP 通过 ISL 帧或 Cisco 
 
 **3560 VTP Server 配置：**
 
-![image-20220103162950544](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103162950544.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222081-6671cc69-4c4f-4135-be14-81b975677153.png)
+
 
 我们将在左边交换机 2960A 上进行如下工作：
 
@@ -373,11 +404,12 @@ VTP（VLAN Trunk Protocol）即 VLAN 中继协议。VTP 通过 ISL 帧或 Cisco 
 
 **2960A（左边） VTP Client 配置：**
 
-![image-20220103163557848](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103163557848.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222102-dd771848-40f6-4e4b-8249-df870b393521.png)
 
 **2960B（右边） VTP Client 配置：**
 
-![image-20220103164116028](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103164116028.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222121-7078a4cc-51ea-4179-8c11-e605847547c8.png)
+
 
 至此，各交换机配置完毕。
 
@@ -385,21 +417,24 @@ VTP（VLAN Trunk Protocol）即 VLAN 中继协议。VTP 通过 ISL 帧或 Cisco 
 
 右边
 
-![image-20220103164508364](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103164508364.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222147-e4494cde-ec54-41f1-a8ae-17e181da794c.png)
 
-![image-20220103164521505](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103164521505.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148222159-7d572ba2-300e-4279-9b07-9f4ffc9282f9.png)
 
 左边
 
-![image-20220103164623013](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103164623013.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222176-c4d3dbdd-f813-4cd5-8868-0cddfce8799f.png)
 
-![image-20220103164657401](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103164657401.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148222189-bd29a4f4-f3ea-4882-9981-ed981ee3741c.png)
 
 中间
 
-![image-20220103164732285](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103164732285.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222201-8237a5a6-516e-4551-b73d-a2149dd44094.png)
 
-![image-20220103164756402](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103164756402.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222218-05e71cca-2eaa-4f1d-8af4-c63dfaaeaffc.png)
+
 
 各 PC 连接的交换机和接口以及网络配置如下：
 
@@ -412,7 +447,8 @@ VTP（VLAN Trunk Protocol）即 VLAN 中继协议。VTP 通过 ISL 帧或 Cisco 
 
 至此，VTP 配置完成。同 VLAN 可以 `ping` 通，而不同 VLAN 不行（即使在同一交换机下，如从 PC0 到 PC1），且能够方便的统一规划和管理。
 
-![image-20220103165133857](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103165133857.png)
+![图片](https://user-images.githubusercontent.com/86180817/148222235-7b653744-1360-417a-974b-01226a9e1c65.png)
+
 
 ## VLAN 间的通信
 
@@ -424,13 +460,13 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 
 **3560 交换机配置：**
 
-![image-20220103165555082](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103165555082.png)
+
 
 至此，各 VLAN 中的 PC 可以正常通信。
 
 **现在再使用 PC0（`192.168.1.2`） `ping` PC1（`192.168.2.2`） 的结果如何？使用 PC0 `ping` PC2 的结果如何？**
 
-![image-20220103165748372](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103165748372.png)
+
 
 🗣 **独臂路由的缺陷**
 
@@ -442,11 +478,8 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 
 动态主机配置 DHCP、域名解析 DNS 以及 Web 服务在日常应用中作用巨大，我们构建如下简单的拓扑来进行练习。
 
-![img](http://10.1.74.238/network/netlab/img/28b13e58b1c50cf6.png)
 
 
-
-![image-20220103170401770](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103170401770.png)
 
 该拓扑中，服务器及客户机都连在同一交换机上。为简单起见，服务器 Server-PT 同时作为  DHCP、DNS 以及 Web 服务器，各客户机无需配置，将自动获取网络配置。
 
