@@ -460,6 +460,7 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 
 **3560 交换机配置：**
 
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815102/Cisco.Packet.Tracer.md)
 
 
 至此，各 VLAN 中的 PC 可以正常通信。
@@ -467,6 +468,7 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 **现在再使用 PC0（`192.168.1.2`） `ping` PC1（`192.168.2.2`） 的结果如何？使用 PC0 `ping` PC2 的结果如何？**
 
 
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815115/Cisco.Packet.Tracer.md)
 
 🗣 **独臂路由的缺陷**
 
@@ -478,6 +480,7 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 
 动态主机配置 DHCP、域名解析 DNS 以及 Web 服务在日常应用中作用巨大，我们构建如下简单的拓扑来进行练习。
 
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815116/Cisco.Packet.Tracer.md)
 
 
 
@@ -492,26 +495,31 @@ VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得�
 | Server     | DHCP         | 地址池开始地址：19.89.6.10/24，并返回DNS地址 |
 | PC         | 网络配置     | 自动获取                                     |
 
-![image-20220103172141300](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103172141300.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815117/Cisco.Packet.Tracer.md)
 
 
 
-![image-20220103172213772](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103172213772.png)
+
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815118/Cisco.Packet.Tracer.md)
+
 
 1. **先查看各 PC，看看是否获得网络配置**
 2. **因为我们在 DNS 服务器中把谷歌和百度的 IP 都设为了 `19.89.6.4`，即 Server-PT，所以，如果打开 PC0 的浏览器，输入 `www.google.com` 或者 `www.baidu.com`，我们都应该看到默认的 Server-PT 这个 Web 服务器的主页（你也可进行编辑）**
 
 
 
-![image-20220103172228792](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103172228792.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815120/Cisco.Packet.Tracer.md)
 
 
 
-![image-20220103172250249](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103172250249.png)
 
-![image-20220103172501084](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103172501084.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815121/Cisco.Packet.Tracer.md)
 
-![image-20220103172553287](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103172553287.png)
+
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815122/Cisco.Packet.Tracer.md)
+
+
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815127/Cisco.Packet.Tracer.md)
 
 ## WLAN初步配置
 
@@ -519,26 +527,30 @@ WLAN 即 WiFi 当前也是广泛的应用在各种场景。
 
 我们通过构建如下拓扑的一个家庭 WLAN 来练习一下其相关的配置：
 
-![img](http://10.1.74.238/network/netlab/img/649a26a691bfaf8e.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815129/Cisco.Packet.Tracer.md)
+
 
 
 
 笔记本及台式机默认只有有线网卡，请先关机，在关机状态下删除有线网卡，添加无线网卡，然后再开机。
 
-![image-20220103173623414](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103173623414.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815132/Cisco.Packet.Tracer.md)
+
 
 无线网卡可以选择PT-HOST-NM-1W或者PT-HOST-NM-1W-A
 
-![image-20220103174047140](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103174047140.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815134/Cisco.Packet.Tracer.md)
+
 
 配置好后的PC9和Laptop-PT无线联网的计算机都能自动获取网络配置并且PC9能够ping通Laptop-PT
 
-![image-20220103174118171](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103174118171.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815137/Cisco.Packet.Tracer.md)
 
 
-
-![image-20220103174131904](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103174131904.png)
-
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815099/Cisco.Packet.Tracer.md)
 
 
-![image-20220103174339684](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220103174339684.png)
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815144/Cisco.Packet.Tracer.md)
+
+[Cisco Packet Tracer 实验.md](https://github.com/jiangfeng1030/web/files/7815148/Cisco.Packet.Tracer.md)
+
