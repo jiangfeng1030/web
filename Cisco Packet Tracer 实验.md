@@ -12,7 +12,7 @@
 
 构建如下拓扑结构的局域网：
 
-![img](http://10.1.74.238/network/netlab/img/d703203be531d775.png)
+http://10.1.74.238/network/netlab/img/d703203be531d775.png
 
 
 
