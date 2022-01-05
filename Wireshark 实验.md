@@ -6,7 +6,8 @@
 
 使用 Wireshark 任意进行抓包，熟悉 Ethernet 帧的结构，如：目的 MAC、源 MAC、类型、字段等。
 
-![image-20220102132353663](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102132353663.png)
+![图片](https://user-images.githubusercontent.com/86180817/148219960-fbb5b3a8-14dc-495b-871d-16223aea4c6d.png)
+
 
 目的Mac：00:74:9c:9f:40:13
 
@@ -22,9 +23,11 @@
 
 1.`ping` 你旁边的计算机（同一子网），同时用 Wireshark 抓这些包（可使用 icmp 关键字进行过滤以利于分析），记录一下发出帧的目的 MAC 地址以及返回帧的源 MAC 地址是多少？这个 MAC 地址是谁的？
 
-![image-20220102134059972](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102134059972.png)
+![图片](https://user-images.githubusercontent.com/86180817/148219994-a82ed88e-fc88-4f17-a53d-31bda40f2202.png)
 
-![image-20220102135012647](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102135012647.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148220010-9f872ca0-9fd8-4d2c-ad71-96c1a3a44318.png)
+
 
 我的ip是192.168.43.139  我ping的目的地址是192.168.43.40
 
@@ -32,7 +35,8 @@
 
 2.然后 `ping qige.io` （或者本子网外的主机都可以），同时用 Wireshark 抓这些包（可 icmp 过滤），记录一下发出帧的目的 MAC 地址以及返回帧的源 MAC 地址是多少？这个 MAC 地址是谁的？
 
-![image-20220102142354969](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102142354969.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220039-5f15b18f-e0b7-4612-8efb-857187dcaa88.png)
+
 
 目的mac是32:ea:26:ba:2d:5e  这是棋歌的mac地址
 
@@ -40,7 +44,8 @@
 
 3.再次 `ping www.cqjtu.edu.cn` （或者本子网外的主机都可以），同时用 Wireshark 抓这些包（可 icmp 过滤），记录一下发出帧的目的 MAC 地址以及返回帧的源 MAC 地址又是多少？这个 MAC 地址又是谁的？
 
-![image-20220102142821672](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102142821672.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220060-7af92b3a-2568-480d-9172-8b60bd585533.png)
+
 
 目的mac是32:ea:26:ba:2d:5e
 
@@ -59,13 +64,16 @@
 
 1.为防止干扰，先使用 `arp -d *` 命令清空 arp 缓存
 
-![image-20220102143409844](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102143409844.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220092-9202cea8-941c-49cc-bf5a-809ba82e8400.png)
+
 
 2.`ping` 你旁边的计算机（同一子网），同时用 Wireshark 抓这些包（可 arp 过滤），查看 ARP 请求的格式以及请求的内容，注意观察该请求的目的 MAC 地址是什么。再查看一下该请求的回应，注意观察该回应的源 MAC 和目的 MAC 地址是什么。
 
-![image-20220102143632757](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102143632757.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220111-9e885823-ed88-47fc-b4ea-917ba2219dad.png)
 
-![image-20220102144759013](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102144759013.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148220445-fc0fb579-d30b-4756-9cd2-5a9e62618bef.png)
+
 
 回应的源mac是a0:a4:c5:c6:94:6d   我ping的主机的地址
 
@@ -73,13 +81,16 @@
 
 3.再次使用 `arp -d *` 命令清空 arp 缓存
 
-![image-20220102145003468](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102145003468.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220472-6cbd88d2-6a68-41ff-93d5-326b29e61b4a.png)
+
 
 4.然后 `ping qige.io` （或者本子网外的主机都可以），同时用 Wireshark 抓这些包（可 arp 过滤）。查看这次 ARP 请求的是什么，注意观察该请求是谁在回应。
 
-![image-20220102145254439](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102145254439.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220509-35d2e6ea-10cd-440a-9f7b-2670846e359b.png)
 
-![image-20220102145240762](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102145240762.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148220535-58ecc845-10e1-4516-afda-fa3cf5bc86d0.png)
+
 
 ​    **通过以上的实验，你应该会发现，**
 
@@ -96,7 +107,8 @@ ARP解析是先看arp表中是否有目的地址，如果有就不需要再次�
 
 使用 Wireshark 任意进行抓包（可用 ip 过滤），熟悉 IP 包的结构，如：版本、头部长度、总长度、TTL、协议类型等字段。
 
-![image-20220102153147141](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102153147141.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220551-22d2f9c1-b844-4662-b04b-96797ceae68d.png)
+
 
 **为提高效率，我们应该让 IP 的头部尽可能的精简。但在如此珍贵的 IP 头部你会发现既有头部长度字段，也有总长度字段。请问为什么？**
 
@@ -108,7 +120,8 @@ ARP解析是先看arp表中是否有目的地址，如果有就不需要再次�
 
 缺省的，`ping` 命令只会向对方发送 32 个字节的数据。我们可以使用 `ping 202.202.240.16 -l 2000` 命令指定要发送的数据长度。此时使用 Wireshark 抓包（用 `ip.addr == 202.202.240.16` 进行过滤），了解 IP 包如何进行分段，如：分段标志、偏移量以及每个包的大小等
 
-![image-20220102154509095](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102154509095.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220572-b5062954-20ab-4fe9-ab41-19c0888b9417.png)
+
 
 分段标志：0x00 前两个是保留位
 
@@ -126,13 +139,17 @@ ARP解析是先看arp表中是否有目的地址，如果有就不需要再次�
 
 请使用 `tracert www.baidu.com` 命令进行追踪，此时使用 Wireshark 抓包（用 `icmp` 过滤），分析每个发送包的 TTL 是如何进行改变的，从而理解路由追踪原理。 
 
-![image-20220102155509313](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102155509313.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220597-efcd29eb-99ce-44e9-8a88-8f2499f700b1.png)
 
-![image-20220102155536311](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102155536311.png)
 
-![image-20220102155547893](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102155547893.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220613-ce9b37e0-29ba-4335-b7b9-a575f7ac81f0.png)
 
-![image-20220102155600204](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102155600204.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148220628-24dd8e0c-3fde-4015-89a4-1449dfd2e4ff.png)
+
+
+![图片](https://user-images.githubusercontent.com/86180817/148220638-995404c2-cb20-49e2-b8d0-4448824fce8c.png)
+
 
 可以看到，每经过一个路由，TTL会增加1，直到到达目的地址。
 
@@ -146,7 +163,8 @@ TTL的设置为每一跳-1，当TTL=50时，64-50=14，说明经过了14跳
 
 1.用 Wireshark 任意抓包（可用 tcp 过滤），熟悉 TCP 段的结构，如：源端口、目的端口、序列号、确认号、各种标志位等字段。
 
-![image-20220102155936760](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102155936760.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220655-a6281a0b-ff76-4d9a-9557-af4c64873eed.png)
+
 
 源端口：443
  目的端口：64762
@@ -157,7 +175,8 @@ TTL的设置为每一跳-1，当TTL=50时，64-50=14，说明经过了14跳
 
 2.用 Wireshark 任意抓包（可用 udp 过滤），熟悉 UDP 段的结构，如：源端口、目的端口、长度等。
 
-![image-20220102160837355](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102160837355.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220674-d016836c-191e-42b9-82d7-18ca88e8920f.png)
+
 
 源端口：52464
  目的端口：53
@@ -167,17 +186,20 @@ TTL的设置为每一跳-1，当TTL=50时，64-50=14，说明经过了14跳
 
 1.打开浏览器访问 qige.io 网站，用 Wireshark 抓包（可用 tcp 过滤后再使用加上 `Follow TCP Stream`），不要立即停止 Wireshark 捕获，待页面显示完毕后再多等一段时间使得能够捕获释放连接的包。
 
-![image-20220102161616105](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102161616105.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220691-d936236d-353e-47ed-94ea-07008ef7d145.png)
+
 
 2.请在你捕获的包中找到三次握手建立连接的包，并说明为何它们是用于建立连接的，有什么特征。
 
-![image-20220102161826277](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102161826277.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220705-988b0caa-6781-49ec-84b2-ecef6239e07b.png)
+
 
 第三次握手，同步位（SYN）是0，确认位（ACK）是1
 
 3.请在你捕获的包中找到四次挥手释放连接的包，并说明为何它们是用于释放连接的，有什么特征。
 
-![image-20220102162112516](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102162112516.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220726-cce3eac2-fcd8-4a6e-a04a-89a67d9e2b9f.png)
+
 
 TCP释放时，终止控制位FIN和ACK控制位为1
 
@@ -201,13 +223,16 @@ TCP释放时，终止控制位FIN和ACK控制位为1
 
 1.先使用 `ipconfig /flushdns` 命令清除缓存，再使用 `nslookup qige.io` 命令进行解析，同时用 Wireshark 任意抓包（可用 dns 过滤）。
 
-![image-20220102162518644](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102162518644.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220746-1694b1f1-b48d-4a32-80d8-a22bd26096dc.png)
 
-![image-20220102162637183](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102162637183.png)
+
+![图片](https://user-images.githubusercontent.com/86180817/148220760-67a01f6f-2aa5-4f1a-b278-732aab39ff8f.png)
+
 
 2.你应该可以看到当前计算机使用 UDP，向默认的 DNS 服务器的 53 号端口发出了查询请求，而 DNS 服务器的 53 号端口返回了结果。
 
-![image-20220102162859994](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102162859994.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220778-11e8dcb5-735a-45b4-a6ee-9f469742f5cc.png)
+
 
 3.可了解一下 DNS 查询和应答的相关字段的含义
 
@@ -243,11 +268,12 @@ rcode，4位返回码，表示应答的状态。常用值有0（无错误）和3
 
 1.打开浏览器访问 qige.io 网站，用 Wireshark 抓包（可用http 过滤再加上 `Follow TCP Stream`），不要立即停止 Wireshark 捕获，待页面显示完毕后再多等一段时间以将释放连接的包捕获。
 
-![image-20220102163218341](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102163218341.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220812-ef9b2028-eede-4063-b399-080d50d0ffd3.png)
 
 2.请在你捕获的包中找到 HTTP 请求包，查看请求使用的什么命令，如：`GET, POST`。并仔细了解请求的头部有哪些字段及其意义。
 
-![image-20220102163401252](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102163401252.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220829-50ddbf3d-305d-412f-857f-a23becc70f9d.png)
+
 
 Accept:告诉WEB服务器自己接受什么介质类型
 
@@ -264,7 +290,8 @@ POST:请求的方式，其中包括URI和版本
 
 3.请在你捕获的包中找到 HTTP 应答包，查看应答的代码是什么，如：`200, 304, 404` 等。并仔细了解应答的头部有哪些字段及其意义。
 
-![image-20220102164128611](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220102164128611.png)
+![图片](https://user-images.githubusercontent.com/86180817/148220855-149e5f4e-2eda-4191-aa2d-76b359dd7c58.png)
+
 
 该应答包的应答代码为200，表示OK
 头部字段的意义：
